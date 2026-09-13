@@ -1,0 +1,37 @@
+$ fm-pr-merge.sh task-x1 https://github.com/o/r/pull/1 --attended-override -- --auto --admin [NO_MISTAKES_GATE='1'; bypass unset]
+error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=3
+
+$ fm-pr-merge.sh task-x1 https://github.com/o/r/pull/1 --attended-override -- --auto --admin [NO_MISTAKES_GATE=''; bypass unset]
+error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=3
+
+$ fm-pr-merge.sh task-x1 https://github.com/o/r/pull/1 --attended-override -- --auto --admin [NO_MISTAKES_GATE=None; bypass unset]
+error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/repos/1a5499572d9d.git)
+exit=3
+
+$ fm-pr-merge.sh task-x1 https://gitlab.com/o/r/-/merge_requests/1 [NO_MISTAKES_GATE='1'; bypass unset]
+error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=3
+
+$ fm-pr-merge.sh task-x1 https://gitlab.com/o/r/-/merge_requests/1 [NO_MISTAKES_GATE=''; bypass unset]
+error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=3
+
+$ fm-pr-merge.sh task-x1 https://gitlab.com/o/r/-/merge_requests/1 [NO_MISTAKES_GATE=None; bypass unset]
+error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/repos/1a5499572d9d.git)
+exit=3
+
+$ fm-merge-local.sh task-x1 [NO_MISTAKES_GATE='1'; bypass unset]
+error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=3
+
+$ fm-merge-local.sh task-x1 [NO_MISTAKES_GATE=''; bypass unset]
+error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)
+exit=3
+
+$ fm-merge-local.sh task-x1 [NO_MISTAKES_GATE=None; bypass unset]
+error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/repos/1a5499572d9d.git)
+exit=3
+
+After every invocation: task metadata unchanged; no lock, authority, or other state files created.

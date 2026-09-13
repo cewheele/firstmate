@@ -1,0 +1,203 @@
++ set -u
+++ dirname tests/fm-gate-refuse.test.sh
++ . tests/fixtures.sh
++++ dirname tests/fixtures.sh
+++ . tests/lib.sh
++++ '[' -n '' ']'
++++ FM_TEST_LIB_SOURCED=1
++++ umask 022
+++++ dirname tests/lib.sh
++++ . tests/git-config-helpers.sh
+++++ export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1
+++++ GIT_CONFIG_GLOBAL=/dev/null
+++++ GIT_CONFIG_NOSYSTEM=1
++++ export FM_GATE_REFUSE_BYPASS=1
++++ FM_GATE_REFUSE_BYPASS=1
++++ unset FM_TASK_ID
++++ unset TASKS_AXI_FILE TASKS_AXI_BACKEND
++++++ dirname tests/lib.sh
+++++ cd tests/..
+++++ pwd
++++ ROOT=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ
++++ FM_TEST_CLEANUP_DIRS=()
+++++ mktemp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2032843.XXXXXX
++++ FM_TEST_CLEANUP_REGISTRY=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2032843.HOZPkk
+++++ fm_test_pid_identity 2032843
+++++ local pid=2032843
+++++ FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp
+++++ bash -c '. "$1"; fm_pid_identity "$2"' _ /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-wake-lib.sh 2032843
++++ FM_TEST_OWNER_IDENTITY='linux-starttime=749172 cmdline-hex=62617368002d780074657374732f666d2d676174652d7265667573652e746573742e736800'
+++++ mktemp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2032843.XXXXXX
++++ FM_TEST_PROCEVENT_REGISTRY=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2032843.BoNsGe
++++ FM_TEST_STUB_MAX_BLOCK_SECONDS=120
++++ export FM_TEST_STUB_MAX_BLOCK_SECONDS
++++ trap fm_test_cleanup EXIT
++++ trap 'fm_test_cleanup; exit 130' INT
++++ trap 'fm_test_cleanup; exit 143' TERM
++++ trap 'fm_test_cleanup; exit 129' HUP
++++ trap 'fm_test_cleanup; exit 131' QUIT
++++ FM_TEST_ORPHAN_MAX_AGE_SECONDS=3600
++++ '[' 0 '!=' 1 ']'
++++ fm_test_reap_orphans
++++ local marker dir mtime now owner_pid owner_identity current_identity
+++++ date +%s
++++ now=1789323136
++++ for marker in "${TMPDIR:-/tmp}"/fm-*/.fm-test-fixture
++++ '[' -e '/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-*/.fm-test-fixture' ']'
++++ continue
+++ '[' -n '' ']'
+++ FM_TEST_FIXTURES_SOURCED=1
+++ export FM_TEST_NO_MISTAKES_VERSION=1.46.0
+++ FM_TEST_NO_MISTAKES_VERSION=1.46.0
+++ export 'FM_TEST_NO_MISTAKES_FAKE_VERSION=no-mistakes version v1.46.0 (fake)'
+++ FM_TEST_NO_MISTAKES_FAKE_VERSION='no-mistakes version v1.46.0 (fake)'
+++ export 'FM_TEST_NO_MISTAKES_FAKE_VERSION_TS=no-mistakes version v1.46.0 (fake) 2026-06-27T00:02:18Z'
+++ FM_TEST_NO_MISTAKES_FAKE_VERSION_TS='no-mistakes version v1.46.0 (fake) 2026-06-27T00:02:18Z'
+++ export FM_TEST_GH_AXI_VERSION=0.1.29
+++ FM_TEST_GH_AXI_VERSION=0.1.29
++ GATE_LIB=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++ SPAWN=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-spawn.sh
++ SEND=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-send.sh
++ TEARDOWN=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-teardown.sh
++ PR_MERGE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-pr-merge.sh
++ MERGE_LOCAL=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-merge-local.sh
+++ fm_test_tmproot fm-gate-refuse
+++ local prefix=fm-gate-refuse root tmp_base
+++ tmp_base=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp
+++ tmp_base=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp
++++ mktemp -d /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.XXXXXX
+++ root=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
++++ cd -P -- /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
++++ pwd -P
+++ root=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
+++ printf '%s\n%s\n' 2032843 'linux-starttime=749172 cmdline-hex=62617368002d780074657374732f666d2d676174652d7265667573652e746573742e736800'
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
++ TMP=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
++ fm_git_identity fmtest fmtest@example.invalid
++ export GIT_AUTHOR_NAME=fmtest GIT_AUTHOR_EMAIL=fmtest@example.invalid
++ GIT_AUTHOR_NAME=fmtest
++ GIT_AUTHOR_EMAIL=fmtest@example.invalid
++ export GIT_COMMITTER_NAME=fmtest GIT_COMMITTER_EMAIL=fmtest@example.invalid
++ GIT_COMMITTER_NAME=fmtest
++ GIT_COMMITTER_EMAIL=fmtest@example.invalid
++ ENV_MSG='NO_MISTAKES_GATE set'
++ PATH_MSG='no-mistakes gate worktree'
+++ make_gate_worktree /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate
+++ local root=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate id=016d88035d58 run=01KXC3SD5NZYMERGDS68Z1C8ER seed
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/origin.git
++++ mktemp -d /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate-seed.XXXXXX
+++ seed=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate-seed.xBaqsh
+++ git init -q -b main /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate-seed.xBaqsh
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate-seed.xBaqsh commit -q --allow-empty -m init
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate-seed.xBaqsh push -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/origin.git HEAD:refs/heads/main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate-seed.xBaqsh
+++ git clone -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git worktree add --detach /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER main
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
++ GATE_WT=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ make_normal_repo /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
+++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
+++ git init -q -b main /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd commit -q --allow-empty -m init
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
++ NORMAL_CWD=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
++ test_helper_env_marker_refuses
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd set
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd marker=set
++ out=$'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ export NO_MISTAKES_GATE=1\n++ NO_MISTAKES_GATE=1\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' x = x \']\'\n++ FM_GATE_REFUSE_REASON=env\n++ return 0\n++ \'[\' env = env \']\'\n++ echo \'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\'\nerror: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\n++ exit 3'
++ rc=3
++ expect_code 3 3 'helper: env marker must exit 3'
++ local expected=3 actual=3 'label=helper: env marker must exit 3'
++ '[' 3 = 3 ']'
++ assert_contains $'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ export NO_MISTAKES_GATE=1\n++ NO_MISTAKES_GATE=1\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' x = x \']\'\n++ FM_GATE_REFUSE_REASON=env\n++ return 0\n++ \'[\' env = env \']\'\n++ echo \'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\'\nerror: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\n++ exit 3' 'NO_MISTAKES_GATE set' 'helper: env-marker refusal message'
++ case "$1" in
++ :
++ pass 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set'
+ok - fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set
++ test_helper_empty_env_marker_refuses
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd empty
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd marker=empty
++ out=$'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ export NO_MISTAKES_GATE=\n++ NO_MISTAKES_GATE=\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' x = x \']\'\n++ FM_GATE_REFUSE_REASON=env\n++ return 0\n++ \'[\' env = env \']\'\n++ echo \'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\'\nerror: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\n++ exit 3'
++ rc=3
++ expect_code 3 3 'helper: empty env marker must exit 3'
++ local expected=3 actual=3 'label=helper: empty env marker must exit 3'
++ '[' 3 = 3 ']'
++ assert_contains $'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ export NO_MISTAKES_GATE=\n++ NO_MISTAKES_GATE=\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' x = x \']\'\n++ FM_GATE_REFUSE_REASON=env\n++ return 0\n++ \'[\' env = env \']\'\n++ echo \'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\'\nerror: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)\n++ exit 3' 'NO_MISTAKES_GATE set' 'helper: empty env-marker refusal message'
++ case "$1" in
++ :
++ pass 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set empty'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set empty'
+ok - fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set empty
++ test_helper_path_backstop_refuses
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER marker=unset
++ out=$'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n++ case "$common" in\n++ FM_GATE_REFUSE_REASON=path\n++ FM_GATE_REFUSE_COMMON=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n++ return 0\n++ \'[\' path = env \']\'\n++ echo \'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git)\'\nerror: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git)\n++ exit 3'
++ rc=3
++ expect_code 3 3 'helper: gate worktree must exit 3 even with the marker unset'
++ local expected=3 actual=3 'label=helper: gate worktree must exit 3 even with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains $'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n++ case "$common" in\n++ FM_GATE_REFUSE_REASON=path\n++ FM_GATE_REFUSE_COMMON=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n++ return 0\n++ \'[\' path = env \']\'\n++ echo \'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git)\'\nerror: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git)\n++ exit 3' 'no-mistakes gate worktree' 'helper: path-backstop refusal message'
++ case "$1" in
++ :
++ assert_not_contains $'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n++ case "$common" in\n++ FM_GATE_REFUSE_REASON=path\n++ FM_GATE_REFUSE_COMMON=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git\n++ return 0\n++ \'[\' path = env \']\'\n++ echo \'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git)\'\nerror: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/gate/.no-mistakes/repos/016d88035d58.git)\n++ exit 3' 'NO_MISTAKES_GATE set' 'helper: backstop must not be attributed to the env marker'
++ case "$1" in
++ :
++ pass 'fm-gate-refuse-lib: refuses from a gate worktree via git-common-dir (marker unset)'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: refuses from a gate worktree via git-common-dir (marker unset)'
+ok - fm-gate-refuse-lib: refuses from a gate worktree via git-common-dir (marker unset)
++ test_helper_normal_is_noop
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd marker=unset
++ out=$'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd .git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd/.git\n++ case "$common" in\n++ return 1\n++ return 0'
++ rc=0
++ expect_code 0 0 'helper: a normal session (neither signal) must not refuse'
++ local expected=0 actual=0 'label=helper: a normal session (neither signal) must not refuse'
++ '[' 0 = 0 ']'
++ '[' -z $'++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd .git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd/.git\n++ case "$common" in\n++ return 1\n++ return 0' ']'
++ fail $'helper: normal session printed output: ++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd .git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd/.git\n++ case "$common" in\n++ return 1\n++ return 0'
++ printf 'not ok - %s\n' $'helper: normal session printed output: ++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd\n++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS\n++ case "$marker" in\n++ set -eu\n++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh\n+++ FM_GATE_REFUSE_EXIT=3\n++ fm_refuse_if_gate_agent\n++ fm_is_gate_agent .\n++ local anchor=. common\n++ \'[\' \'\' = 1 \']\'\n++ \'[\' \'\' = x \']\'\n+++ cd .\n++++ git rev-parse --git-common-dir\n+++ cd .git\n+++ pwd -P\n++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd/.git\n++ case "$common" in\n++ return 1\n++ return 0'
+not ok - helper: normal session printed output: ++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd
+++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS
+++ case "$marker" in
+++ set -eu
+++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++++ FM_GATE_REFUSE_EXIT=3
+++ fm_refuse_if_gate_agent
+++ fm_is_gate_agent .
+++ local anchor=. common
+++ '[' '' = 1 ']'
+++ '[' '' = x ']'
++++ cd .
+++++ git rev-parse --git-common-dir
++++ cd .git
++++ pwd -P
+++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A/normal-cwd/.git
+++ case "$common" in
+++ return 1
+++ return 0
++ exit 1
++ fm_test_cleanup
++ local d
++ fm_test_reap_procevent_homes
++ local home claim_root $'seen=\n'
++ '[' -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2032843.BoNsGe ']'
++ IFS=$'\t'
++ read -r home claim_root
++ rm -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2032843.BoNsGe
++ for d in "${FM_TEST_CLEANUP_DIRS[@]:-}"
++ '[' -n '' ']'
++ '[' -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2032843.HOZPkk ']'
++ IFS=
++ read -r d
++ '[' -n /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A ']'
++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.cQfQ1A
++ IFS=
++ read -r d
++ rm -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2032843.HOZPkk

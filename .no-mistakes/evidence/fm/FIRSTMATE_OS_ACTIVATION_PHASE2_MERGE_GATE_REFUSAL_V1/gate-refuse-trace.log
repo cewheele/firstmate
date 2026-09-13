@@ -1,0 +1,915 @@
++ set -u
+++ dirname tests/fm-gate-refuse.test.sh
++ . tests/fixtures.sh
++++ dirname tests/fixtures.sh
+++ . tests/lib.sh
++++ '[' -n '' ']'
++++ FM_TEST_LIB_SOURCED=1
++++ umask 022
+++++ dirname tests/lib.sh
++++ . tests/git-config-helpers.sh
+++++ export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_NOSYSTEM=1
+++++ GIT_CONFIG_GLOBAL=/dev/null
+++++ GIT_CONFIG_NOSYSTEM=1
++++ export FM_GATE_REFUSE_BYPASS=1
++++ FM_GATE_REFUSE_BYPASS=1
++++ unset FM_TASK_ID
++++ unset TASKS_AXI_FILE TASKS_AXI_BACKEND
++++++ dirname tests/lib.sh
+++++ cd tests/..
+++++ pwd
++++ ROOT=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ
++++ FM_TEST_CLEANUP_DIRS=()
+++++ mktemp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2036147.XXXXXX
++++ FM_TEST_CLEANUP_REGISTRY=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2036147.D6Rbhc
+++++ fm_test_pid_identity 2036147
+++++ local pid=2036147
+++++ FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp
+++++ bash -c '. "$1"; fm_pid_identity "$2"' _ /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-wake-lib.sh 2036147
++++ FM_TEST_OWNER_IDENTITY='linux-starttime=750176 cmdline-hex=62617368002d780074657374732f666d2d676174652d7265667573652e746573742e736800'
+++++ mktemp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2036147.XXXXXX
++++ FM_TEST_PROCEVENT_REGISTRY=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2036147.3QylOT
++++ FM_TEST_STUB_MAX_BLOCK_SECONDS=120
++++ export FM_TEST_STUB_MAX_BLOCK_SECONDS
++++ trap fm_test_cleanup EXIT
++++ trap 'fm_test_cleanup; exit 130' INT
++++ trap 'fm_test_cleanup; exit 143' TERM
++++ trap 'fm_test_cleanup; exit 129' HUP
++++ trap 'fm_test_cleanup; exit 131' QUIT
++++ FM_TEST_ORPHAN_MAX_AGE_SECONDS=3600
++++ '[' 0 '!=' 1 ']'
++++ fm_test_reap_orphans
++++ local marker dir mtime now owner_pid owner_identity current_identity
+++++ date +%s
++++ now=1789323146
++++ for marker in "${TMPDIR:-/tmp}"/fm-*/.fm-test-fixture
++++ '[' -e '/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-*/.fm-test-fixture' ']'
++++ continue
+++ '[' -n '' ']'
+++ FM_TEST_FIXTURES_SOURCED=1
+++ export FM_TEST_NO_MISTAKES_VERSION=1.46.0
+++ FM_TEST_NO_MISTAKES_VERSION=1.46.0
+++ export 'FM_TEST_NO_MISTAKES_FAKE_VERSION=no-mistakes version v1.46.0 (fake)'
+++ FM_TEST_NO_MISTAKES_FAKE_VERSION='no-mistakes version v1.46.0 (fake)'
+++ export 'FM_TEST_NO_MISTAKES_FAKE_VERSION_TS=no-mistakes version v1.46.0 (fake) 2026-06-27T00:02:18Z'
+++ FM_TEST_NO_MISTAKES_FAKE_VERSION_TS='no-mistakes version v1.46.0 (fake) 2026-06-27T00:02:18Z'
+++ export FM_TEST_GH_AXI_VERSION=0.1.29
+++ FM_TEST_GH_AXI_VERSION=0.1.29
++ GATE_LIB=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++ SPAWN=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-spawn.sh
++ SEND=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-send.sh
++ TEARDOWN=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-teardown.sh
++ PR_MERGE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-pr-merge.sh
++ MERGE_LOCAL=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-merge-local.sh
+++ fm_test_tmproot fm-gate-refuse
+++ local prefix=fm-gate-refuse root tmp_base
+++ tmp_base=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp
+++ tmp_base=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp
++++ mktemp -d /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.XXXXXX
+++ root=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
++++ cd -P -- /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
++++ pwd -P
+++ root=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
+++ printf '%s\n%s\n' 2036147 'linux-starttime=750176 cmdline-hex=62617368002d780074657374732f666d2d676174652d7265667573652e746573742e736800'
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
++ TMP=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
++ fm_git_identity fmtest fmtest@example.invalid
++ export GIT_AUTHOR_NAME=fmtest GIT_AUTHOR_EMAIL=fmtest@example.invalid
++ GIT_AUTHOR_NAME=fmtest
++ GIT_AUTHOR_EMAIL=fmtest@example.invalid
++ export GIT_COMMITTER_NAME=fmtest GIT_COMMITTER_EMAIL=fmtest@example.invalid
++ GIT_COMMITTER_NAME=fmtest
++ GIT_COMMITTER_EMAIL=fmtest@example.invalid
++ ENV_MSG='NO_MISTAKES_GATE set'
++ PATH_MSG='no-mistakes gate worktree'
+++ make_gate_worktree /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate
+++ local root=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate id=016d88035d58 run=01KXC3SD5NZYMERGDS68Z1C8ER seed
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/origin.git
++++ mktemp -d /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate-seed.XXXXXX
+++ seed=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate-seed.PCWYTo
+++ git init -q -b main /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate-seed.PCWYTo
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate-seed.PCWYTo commit -q --allow-empty -m init
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate-seed.PCWYTo push -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/origin.git HEAD:refs/heads/main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate-seed.PCWYTo
+++ git clone -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git worktree add --detach /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER main
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
++ GATE_WT=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ make_normal_repo /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ git init -q -b main /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd commit -q --allow-empty -m init
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
++ NORMAL_CWD=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
++ test_helper_env_marker_refuses
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd set
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd marker=set
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS
+++ case "$marker" in
+++ export NO_MISTAKES_GATE=1
+++ NO_MISTAKES_GATE=1
+++ set -eu
+++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++++ FM_GATE_REFUSE_EXIT=3
+++ fm_refuse_if_gate_agent
+++ fm_is_gate_agent .
+++ local anchor=. common
+++ '[' '' = 1 ']'
+++ '[' x = x ']'
+++ FM_GATE_REFUSE_REASON=env
+++ return 0
+++ '[' env = env ']'
+++ echo 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
+++ exit 3
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'helper: env marker must exit 3'
++ local expected=3 actual=3 'label=helper: env marker must exit 3'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'helper: env-marker refusal message'
++ case "$1" in
++ :
++ pass 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set'
++ test_helper_empty_env_marker_refuses
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd empty
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd marker=empty
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS
+++ case "$marker" in
+++ export NO_MISTAKES_GATE=
+++ NO_MISTAKES_GATE=
+++ set -eu
+++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++++ FM_GATE_REFUSE_EXIT=3
+++ fm_refuse_if_gate_agent
+++ fm_is_gate_agent .
+++ local anchor=. common
+++ '[' '' = 1 ']'
+++ '[' x = x ']'
+++ FM_GATE_REFUSE_REASON=env
+++ return 0
+++ '[' env = env ']'
+++ echo 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
+++ exit 3
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'helper: empty env marker must exit 3'
++ local expected=3 actual=3 'label=helper: empty env marker must exit 3'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'helper: empty env-marker refusal message'
++ case "$1" in
++ :
++ pass 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set empty'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: refuses when NO_MISTAKES_GATE is set empty'
++ test_helper_path_backstop_refuses
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER marker=unset
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS
+++ case "$marker" in
+++ set -eu
+++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++++ FM_GATE_REFUSE_EXIT=3
+++ fm_refuse_if_gate_agent
+++ fm_is_gate_agent .
+++ local anchor=. common
+++ '[' '' = 1 ']'
+++ '[' '' = x ']'
++++ cd .
+++++ git rev-parse --git-common-dir
++++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git
++++ pwd -P
+++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git
+++ case "$common" in
+++ FM_GATE_REFUSE_REASON=path
+++ FM_GATE_REFUSE_COMMON=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git
+++ return 0
+++ '[' path = env ']'
+++ echo 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
+++ exit 3
++ out='error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
++ rc=3
++ expect_code 3 3 'helper: gate worktree must exit 3 even with the marker unset'
++ local expected=3 actual=3 'label=helper: gate worktree must exit 3 even with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'no-mistakes gate worktree' 'helper: path-backstop refusal message'
++ case "$1" in
++ :
++ assert_not_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'NO_MISTAKES_GATE set' 'helper: backstop must not be attributed to the env marker'
++ case "$1" in
++ :
++ pass 'fm-gate-refuse-lib: refuses from a gate worktree via git-common-dir (marker unset)'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: refuses from a gate worktree via git-common-dir (marker unset)'
++ test_helper_normal_is_noop
++ local out rc
+++ run_guard_lib /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd marker=unset
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ unset NO_MISTAKES_GATE FM_GATE_REFUSE_BYPASS
+++ case "$marker" in
+++ set -eu
+++ . /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-gate-refuse-lib.sh
++++ FM_GATE_REFUSE_EXIT=3
+++ fm_refuse_if_gate_agent
+++ fm_is_gate_agent .
+++ local anchor=. common
+++ '[' '' = 1 ']'
+++ '[' '' = x ']'
++++ cd .
+++++ git rev-parse --git-common-dir
++++ cd .git
++++ pwd -P
+++ common=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd/.git
+++ case "$common" in
+++ return 1
+++ return 0
++ out=
++ rc=0
++ expect_code 0 0 'helper: a normal session (neither signal) must not refuse'
++ local expected=0 actual=0 'label=helper: a normal session (neither signal) must not refuse'
++ '[' 0 = 0 ']'
++ '[' -z '' ']'
++ pass 'fm-gate-refuse-lib: no-op for a normal session (neither signal, set -eu clean)'
++ printf 'ok - %s\n' 'fm-gate-refuse-lib: no-op for a normal session (neither signal, set -eu clean)'
++ test_spawn_refuses_and_admits
++ local home proj fakebin wt out rc
++ home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home
++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data
+++ make_normal_repo /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj
+++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj
+++ git init -q -b main /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj commit -q --allow-empty -m init
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj
++ proj=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj
++ fm_git_add_origin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-origin.git
++ local repo=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj remote=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-origin.git remote_abs
++ git clone --quiet --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-origin.git
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-origin.git
+++ pwd
++ remote_abs=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-origin.git
++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj remote add origin file:///home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-origin.git
+++ make_spawn_fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake
+++ fm_test_make_spawn_fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake
+++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake fakebin
+++ shift
++++ fm_fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake
++++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
++++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
++++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ fm_test_fake_tmux_spawn /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ local fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ cat
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin/tmux
+++ fm_fake_exit0 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin treehouse
+++ local fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin tool
+++ shift
+++ for tool in "$@"
+++ cat
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin/treehouse
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
++ wt=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt
++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj worktree add -q --detach /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt
+++ run_spawn /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home spawn-envmark /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin NO_MISTAKES_GATE=1
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home id=spawn-envmark proj=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj pane=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ shift 6
+++ fm_test_spawn_brief /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home spawn-envmark brief
+++ local home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home id=spawn-envmark intent=brief
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-envmark
+++ cat
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE= FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data FM_PROJECTS_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/projects FM_CONFIG_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/config FM_SPAWN_NO_GUARD=1 FM_FAKE_PANE_PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt TMUX=fake,1,0 PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin NO_MISTAKES_GATE=1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-spawn.sh spawn-envmark /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj codex --mode no-mistakes --yolo off
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'spawn: NO_MISTAKES_GATE must refuse'
++ local expected=3 actual=3 'label=spawn: NO_MISTAKES_GATE must refuse'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'spawn: env-marker refusal message'
++ case "$1" in
++ :
++ assert_absent /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state/spawn-envmark.meta 'spawn: refused env-marker launch must not record meta'
++ '[' '!' -e /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state/spawn-envmark.meta ']'
+++ run_spawn /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home spawn-backstop /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home id=spawn-backstop proj=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj pane=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ shift 6
+++ fm_test_spawn_brief /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home spawn-backstop brief
+++ local home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home id=spawn-backstop intent=brief
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-backstop
+++ cat
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE= FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data FM_PROJECTS_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/projects FM_CONFIG_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/config FM_SPAWN_NO_GUARD=1 FM_FAKE_PANE_PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt TMUX=fake,1,0 PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-spawn.sh spawn-backstop /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj codex --mode no-mistakes --yolo off
++ out='error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
++ rc=3
++ expect_code 3 3 'spawn: gate-worktree cwd must refuse with the marker unset'
++ local expected=3 actual=3 'label=spawn: gate-worktree cwd must refuse with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'no-mistakes gate worktree' 'spawn: path-backstop refusal message'
++ case "$1" in
++ :
++ assert_absent /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state/spawn-backstop.meta 'spawn: refused backstop launch must not record meta'
++ '[' '!' -e /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state/spawn-backstop.meta ']'
+++ run_spawn /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home spawn-ok /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home id=spawn-ok proj=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj pane=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin
+++ shift 6
+++ fm_test_spawn_brief /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home spawn-ok brief
+++ local home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home id=spawn-ok intent=brief
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-ok
+++ cat
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE= FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data FM_PROJECTS_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/projects FM_CONFIG_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/config FM_SPAWN_NO_GUARD=1 FM_FAKE_PANE_PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt TMUX=fake,1,0 PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-fake/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-spawn.sh spawn-ok /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-proj codex --mode no-mistakes --yolo off
++ out=$'warning: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-ok/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches\nspawned spawn-ok harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-spawn-ok worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt'
++ rc=0
++ expect_code 0 0 'spawn: a normal session must still spawn'
++ local expected=0 actual=0 'label=spawn: a normal session must still spawn'
++ '[' 0 = 0 ']'
++ assert_contains $'warning: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-ok/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches\nspawned spawn-ok harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-spawn-ok worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt' 'spawned spawn-ok' 'spawn: normal launch should report success'
++ case "$1" in
++ :
++ assert_not_contains $'warning: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-ok/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches\nspawned spawn-ok harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-spawn-ok worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt' 'NO_MISTAKES_GATE set' 'spawn: normal launch must not print the gate refusal'
++ case "$1" in
++ :
++ assert_not_contains $'warning: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/data/spawn-ok/launch-brief.md records no delivery contract line (scaffolded before ship briefs recorded one); launching on the explicit --mode no-mistakes - confirm its definition of done matches\nspawned spawn-ok harness=codex kind=ship mode=no-mistakes yolo=off window=firstmate:fm-spawn-ok worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-wt' 'no-mistakes gate worktree' 'spawn: normal launch must not print the backstop refusal'
++ case "$1" in
++ :
++ assert_present /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state/spawn-ok.meta 'spawn: normal launch should record meta'
++ '[' -e /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/spawn-home/state/spawn-ok.meta ']'
++ pass 'fm-spawn: refuses on marker and gate-worktree backstop; a normal crew spawn is unaffected'
++ printf 'ok - %s\n' 'fm-spawn: refuses on marker and gate-worktree backstop; a normal crew spawn is unaffected'
++ test_send_refuses_and_admits
++ local home fakebin log out rc
++ home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home
++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state
+++ make_send_fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake
+++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake fakebin
++++ fm_fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake
++++ local dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin
++++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin
++++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin
+++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin
+++ cat
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin/tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin/sleep
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin
++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin
++ log=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log
++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.meta window=sess:fm-lane-ok kind=ship harness=codex
++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.meta kv
++ shift
++ :
++ for kv in "$@"
++ printf '%s\n' window=sess:fm-lane-ok
++ for kv in "$@"
++ printf '%s\n' kind=ship
++ for kv in "$@"
++ printf '%s\n' harness=codex
++ :
+++ run_send /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log fm-lane-ok 'hello captain' NO_MISTAKES_GATE=1
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin log=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log target=fm-lane-ok 'text=hello captain'
+++ shift 6
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home FM_TMUX_LOG=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log FM_SEND_SETTLE=0 NO_MISTAKES_GATE=1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-send.sh fm-lane-ok 'hello captain'
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'send: NO_MISTAKES_GATE must refuse'
++ local expected=3 actual=3 'label=send: NO_MISTAKES_GATE must refuse'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'send: env-marker refusal message'
++ case "$1" in
++ :
++ '[' '!' -s /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log ']'
++ :
+++ run_send /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log fm-lane-ok 'hello captain'
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin log=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log target=fm-lane-ok 'text=hello captain'
+++ shift 6
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home FM_TMUX_LOG=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log FM_SEND_SETTLE=0 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-send.sh fm-lane-ok 'hello captain'
++ out='error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
++ rc=3
++ expect_code 3 3 'send: gate-worktree cwd must refuse with the marker unset'
++ local expected=3 actual=3 'label=send: gate-worktree cwd must refuse with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'no-mistakes gate worktree' 'send: path-backstop refusal message'
++ case "$1" in
++ :
++ '[' '!' -s /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log ']'
++ :
+++ run_send /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log fm-lane-ok 'hello captain'
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd home=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin log=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log target=fm-lane-ok 'text=hello captain'
+++ shift 6
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-fake/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home FM_TMUX_LOG=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log FM_SEND_SETTLE=0 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-send.sh fm-lane-ok 'hello captain'
++ out=$'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the requested message WILL still be sent.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━'
++ rc=0
++ expect_code 0 0 'send: a normal session must still send'
++ local expected=0 actual=0 'label=send: a normal session must still send'
++ '[' 0 = 0 ']'
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the requested message WILL still be sent.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' 'NO_MISTAKES_GATE set' 'send: normal send must not print the gate refusal'
++ case "$1" in
++ :
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the requested message WILL still be sent.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━' 'no-mistakes gate worktree' 'send: normal send must not print the backstop refusal'
++ case "$1" in
++ :
+++ bash -c '. "$1"; fm_task_inbox_body "$2"' _ /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-task-inbox-lib.sh /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.inbox/001.msg
++ '[' 'hello captain' = 'hello captain' ']'
+++ cat /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log
++ assert_not_contains $'send-keys target=sess:fm-lane-ok literal=1 arg=: Firstmate instruction waiting: list \'/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.inbox\'/*.msg and, in numeric order, read and act on each, then mv each handled file to \'/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.inbox\'/handled/.\nsend-keys target=sess:fm-lane-ok literal=0 arg=Enter' 'literal=1 arg=hello captain' 'send: normal steer payload must not be typed'
++ case "$1" in
++ :
+++ cat /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-tmux.log
++ assert_contains $'send-keys target=sess:fm-lane-ok literal=1 arg=: Firstmate instruction waiting: list \'/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.inbox\'/*.msg and, in numeric order, read and act on each, then mv each handled file to \'/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/send-home/state/lane-ok.inbox\'/handled/.\nsend-keys target=sess:fm-lane-ok literal=0 arg=Enter' 'target=sess:fm-lane-ok literal=1 arg=: Firstmate instruction waiting' 'send: normal steer should ring the durable inbox doorbell'
++ case "$1" in
++ :
++ pass 'fm-send: refuses on marker and gate-worktree backstop; a normal steer uses the inbox'
++ printf 'ok - %s\n' 'fm-send: refuses on marker and gate-worktree backstop; a normal steer uses the inbox'
++ test_teardown_refuses_and_admits
++ local case_dir out rc
+++ make_teardown_case teardown-envmark
+++ local name=teardown-envmark case_dir fakebin t
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark
+++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/config /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin
+++ for t in treehouse tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin/treehouse
+++ for t in treehouse tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin/tmux
+++ cat
+++ cat
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin/gh-axi /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin/gh
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/origin.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/origin.git symbolic-ref HEAD refs/heads/main
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/_seed
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/_seed commit -q --allow-empty -m 'origin baseline'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/_seed push -q origin main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/_seed
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/project
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/project remote set-head origin main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/project worktree add -q -b fm/task-x1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/wt main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/wt commit -q --allow-empty -m 'shippable work'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/wt push -q origin fm/task-x1
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/project fetch -q origin
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state/task-x1.meta window=firstmate:fm-task-x1 endpoint_task_id=task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/project kind=ship mode=no-mistakes spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=firstmate:fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' endpoint_task_id=task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=no-mistakes
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ touch /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state/.last-watcher-beat
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark
+++ run_teardown /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark NO_MISTAKES_GATE=1
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/data FM_CONFIG_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/config PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin NO_MISTAKES_GATE=1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-teardown.sh task-x1
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'teardown: NO_MISTAKES_GATE must refuse'
++ local expected=3 actual=3 'label=teardown: NO_MISTAKES_GATE must refuse'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'teardown: env-marker refusal message'
++ case "$1" in
++ :
++ assert_present /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state/task-x1.meta 'teardown: refused env-marker teardown must leave the task'
++ '[' -e /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-envmark/state/task-x1.meta ']'
+++ make_teardown_case teardown-backstop
+++ local name=teardown-backstop case_dir fakebin t
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop
+++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/config /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin
+++ for t in treehouse tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin/treehouse
+++ for t in treehouse tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin/tmux
+++ cat
+++ cat
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin/gh-axi /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin/gh
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/origin.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/origin.git symbolic-ref HEAD refs/heads/main
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/_seed
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/_seed commit -q --allow-empty -m 'origin baseline'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/_seed push -q origin main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/_seed
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/project
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/project remote set-head origin main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/project worktree add -q -b fm/task-x1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/wt main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/wt commit -q --allow-empty -m 'shippable work'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/wt push -q origin fm/task-x1
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/project fetch -q origin
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state/task-x1.meta window=firstmate:fm-task-x1 endpoint_task_id=task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/project kind=ship mode=no-mistakes spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=firstmate:fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' endpoint_task_id=task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=no-mistakes
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ touch /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state/.last-watcher-beat
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop
+++ run_teardown /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/data FM_CONFIG_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/config PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-teardown.sh task-x1
++ out='error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
++ rc=3
++ expect_code 3 3 'teardown: gate-worktree cwd must refuse with the marker unset'
++ local expected=3 actual=3 'label=teardown: gate-worktree cwd must refuse with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'no-mistakes gate worktree' 'teardown: path-backstop refusal message'
++ case "$1" in
++ :
++ assert_present /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state/task-x1.meta 'teardown: refused backstop teardown must leave the task'
++ '[' -e /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-backstop/state/task-x1.meta ']'
+++ make_teardown_case teardown-ok
+++ local name=teardown-ok case_dir fakebin t
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok
+++ fakebin=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/config /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin
+++ for t in treehouse tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin/treehouse
+++ for t in treehouse tmux
+++ printf '#!/usr/bin/env bash\nexit 0\n'
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin/tmux
+++ cat
+++ cat
+++ chmod +x /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin/gh-axi /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin/gh
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/origin.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/origin.git symbolic-ref HEAD refs/heads/main
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/_seed
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/_seed commit -q --allow-empty -m 'origin baseline'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/_seed push -q origin main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/_seed
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project remote set-head origin main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project worktree add -q -b fm/task-x1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt commit -q --allow-empty -m 'shippable work'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt push -q origin fm/task-x1
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project fetch -q origin
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/state/task-x1.meta window=firstmate:fm-task-x1 endpoint_task_id=task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project kind=ship mode=no-mistakes spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=firstmate:fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' endpoint_task_id=task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=no-mistakes
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ touch /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/state/.last-watcher-beat
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok
+++ run_teardown /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data FM_CONFIG_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/config PATH=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/fakebin:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.codex/tmp/arg0/codex-arg0FqKEwM:/home/chris_wheeler/.nvm/versions/node/v24.21.0/lib/node_modules/@openai/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path:/home/chris_wheeler/.nvm/versions/node/v24.21.0/bin:/home/chris_wheeler/.local/bin:/home/chris_wheeler/go/bin:/home/chris_wheeler/.cargo/bin:/home/chris_wheeler/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/snap/bin /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-teardown.sh task-x1
++ out=$'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no live watcher process holds this home lock (last beat: 0s ago).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nteardown: reaping leaked worktree process(es) for task-x1: 2043115\n/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project: already current\nteardown task-x1 complete (window firstmate:fm-task-x1, worktree /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt)\nBacklog: task-x1 just finished (this home keeps no markdown backlog at /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md). Update /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md - move task-x1 to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.'
++ rc=0
++ expect_code 0 0 'teardown: a normal session must still tear down landed work'
++ local expected=0 actual=0 'label=teardown: a normal session must still tear down landed work'
++ '[' 0 = 0 ']'
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no live watcher process holds this home lock (last beat: 0s ago).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nteardown: reaping leaked worktree process(es) for task-x1: 2043115\n/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project: already current\nteardown task-x1 complete (window firstmate:fm-task-x1, worktree /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt)\nBacklog: task-x1 just finished (this home keeps no markdown backlog at /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md). Update /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md - move task-x1 to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.' 'NO_MISTAKES_GATE set' 'teardown: normal teardown must not print the gate refusal'
++ case "$1" in
++ :
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no live watcher process holds this home lock (last beat: 0s ago).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nteardown: reaping leaked worktree process(es) for task-x1: 2043115\n/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project: already current\nteardown task-x1 complete (window firstmate:fm-task-x1, worktree /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt)\nBacklog: task-x1 just finished (this home keeps no markdown backlog at /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md). Update /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md - move task-x1 to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.' 'no-mistakes gate worktree' 'teardown: normal teardown must not print the backstop refusal'
++ case "$1" in
++ :
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no live watcher process holds this home lock (last beat: 0s ago).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nteardown: reaping leaked worktree process(es) for task-x1: 2043115\n/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/project: already current\nteardown task-x1 complete (window firstmate:fm-task-x1, worktree /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/wt)\nBacklog: task-x1 just finished (this home keeps no markdown backlog at /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md). Update /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/teardown-ok/data/backlog.md - move task-x1 to Done, keep Done to the 10 most recent, then re-scan Queued and dispatch only work whose blockers are gone and date is due.' REFUSED 'teardown: normal teardown of landed work must not refuse'
++ case "$1" in
++ :
++ pass 'fm-teardown: refuses on marker and gate-worktree backstop; a normal teardown is unaffected'
++ printf 'ok - %s\n' 'fm-teardown: refuses on marker and gate-worktree backstop; a normal teardown is unaffected'
++ test_pr_merge_refuses_and_admits
++ local case_dir out rc
+++ make_pr_merge_case pr-merge-envmark
+++ local name=pr-merge-envmark case_dir
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/config
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/state/task-x1.meta window=fm-task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/project kind=ship mode=no-mistakes spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=no-mistakes
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark
+++ run_pr_merge /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark NO_MISTAKES_GATE=1
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/state NO_MISTAKES_GATE=1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-pr-merge.sh task-x1 https://github.com/o/r/pull/1
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'pr-merge: NO_MISTAKES_GATE must refuse'
++ local expected=3 actual=3 'label=pr-merge: NO_MISTAKES_GATE must refuse'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'pr-merge: env-marker refusal message'
++ case "$1" in
++ :
++ assert_no_grep pr= /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/state/task-x1.meta 'pr-merge: refused env-marker merge must not record pr'
++ grep -F -- pr= /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-envmark/state/task-x1.meta
+++ make_pr_merge_case pr-merge-backstop
+++ local name=pr-merge-backstop case_dir
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/config
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/state/task-x1.meta window=fm-task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/project kind=ship mode=no-mistakes spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=no-mistakes
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop
+++ run_pr_merge /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-pr-merge.sh task-x1 https://github.com/o/r/pull/1
++ out='error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
++ rc=3
++ expect_code 3 3 'pr-merge: gate-worktree cwd must refuse with the marker unset'
++ local expected=3 actual=3 'label=pr-merge: gate-worktree cwd must refuse with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'no-mistakes gate worktree' 'pr-merge: path-backstop refusal message'
++ case "$1" in
++ :
++ assert_no_grep pr= /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/state/task-x1.meta 'pr-merge: refused backstop merge must not record pr'
++ grep -F -- pr= /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-backstop/state/task-x1.meta
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-normal
++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-normal/state
+++ run_pr_merge /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-normal
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-normal
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-normal FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/pr-merge-normal/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-pr-merge.sh task-x1 https://github.com/o/r/pull/1
++ out='error: task metadata is unavailable'
++ rc=1
++ expect_code 1 1 'pr-merge: a normal session must proceed past the guard'
++ local expected=1 actual=1 'label=pr-merge: a normal session must proceed past the guard'
++ '[' 1 = 1 ']'
++ assert_contains 'error: task metadata is unavailable' 'task metadata is unavailable' 'pr-merge: normal session should reach its own metadata check'
++ case "$1" in
++ :
++ assert_not_contains 'error: task metadata is unavailable' 'NO_MISTAKES_GATE set' 'pr-merge: normal session must not print the gate refusal'
++ case "$1" in
++ :
++ assert_not_contains 'error: task metadata is unavailable' 'no-mistakes gate worktree' 'pr-merge: normal session must not print the backstop refusal'
++ case "$1" in
++ :
++ pass 'fm-pr-merge: refuses on marker and gate-worktree backstop; a normal session passes the guard'
++ printf 'ok - %s\n' 'fm-pr-merge: refuses on marker and gate-worktree backstop; a normal session passes the guard'
++ test_merge_local_refuses_and_admits
++ local case_dir out rc
+++ make_local_merge_case merge-local-envmark
+++ local name=merge-local-envmark case_dir
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/config
+++ cp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.tasks.toml /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/.tasks.toml
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/origin.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/origin.git symbolic-ref HEAD refs/heads/main
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/_seed
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/_seed commit -q --allow-empty -m 'origin baseline'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/_seed push -q origin main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/_seed
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project remote set-head origin main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project worktree add -q -b fm/task-x1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/wt main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/wt commit -q --allow-empty -m 'shippable work'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/wt push -q origin fm/task-x1
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project fetch -q origin
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/state/task-x1.meta window=firstmate:fm-task-x1 endpoint_task_id=task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project kind=ship mode=local-only spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=firstmate:fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' endpoint_task_id=task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=local-only
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark
+++ run_merge_local /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark NO_MISTAKES_GATE=1
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/data NO_MISTAKES_GATE=1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-merge-local.sh task-x1
++ out='error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)'
++ rc=3
++ expect_code 3 3 'merge-local: NO_MISTAKES_GATE must refuse'
++ local expected=3 actual=3 'label=merge-local: NO_MISTAKES_GATE must refuse'
++ '[' 3 = 3 ']'
++ assert_contains 'error: no-mistakes gate agent must not drive the fleet (NO_MISTAKES_GATE set)' 'NO_MISTAKES_GATE set' 'merge-local: env-marker refusal message'
++ case "$1" in
++ :
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project rev-parse main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-envmark/project rev-parse fm/task-x1
++ assert_not_equals 2928797d7f7ee983f92de7241bd97666ec175b4d 1c103e28f4a814cc5538bb0edfe13dd2e9394124 'merge-local: refused env-marker landing must not fast-forward the default branch'
++ '[' 2928797d7f7ee983f92de7241bd97666ec175b4d '!=' 1c103e28f4a814cc5538bb0edfe13dd2e9394124 ']'
+++ make_local_merge_case merge-local-backstop
+++ local name=merge-local-backstop case_dir
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/config
+++ cp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.tasks.toml /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/.tasks.toml
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/origin.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/origin.git symbolic-ref HEAD refs/heads/main
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/_seed
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/_seed commit -q --allow-empty -m 'origin baseline'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/_seed push -q origin main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/_seed
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project remote set-head origin main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project worktree add -q -b fm/task-x1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/wt main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/wt commit -q --allow-empty -m 'shippable work'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/wt push -q origin fm/task-x1
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project fetch -q origin
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/state/task-x1.meta window=firstmate:fm-task-x1 endpoint_task_id=task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project kind=ship mode=local-only spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=firstmate:fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' endpoint_task_id=task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=local-only
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop
+++ run_merge_local /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/worktrees/016d88035d58/01KXC3SD5NZYMERGDS68Z1C8ER
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-merge-local.sh task-x1
++ out='error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)'
++ rc=3
++ expect_code 3 3 'merge-local: gate-worktree cwd must refuse with the marker unset'
++ local expected=3 actual=3 'label=merge-local: gate-worktree cwd must refuse with the marker unset'
++ '[' 3 = 3 ']'
++ assert_contains 'error: refusing fleet lifecycle from inside a no-mistakes gate worktree (/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/gate/.no-mistakes/repos/016d88035d58.git)' 'no-mistakes gate worktree' 'merge-local: path-backstop refusal message'
++ case "$1" in
++ :
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project rev-parse main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-backstop/project rev-parse fm/task-x1
++ assert_not_equals 2928797d7f7ee983f92de7241bd97666ec175b4d 89841d2b6220c4c695a6d09391ca4acc06702f73 'merge-local: refused backstop landing must not fast-forward the default branch'
++ '[' 2928797d7f7ee983f92de7241bd97666ec175b4d '!=' 89841d2b6220c4c695a6d09391ca4acc06702f73 ']'
+++ make_local_merge_case merge-local-ok
+++ local name=merge-local-ok case_dir
+++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok
+++ mkdir -p /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/state /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/config
+++ cp /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.tasks.toml /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/.tasks.toml
+++ git init -q --bare /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/origin.git
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/origin.git symbolic-ref HEAD refs/heads/main
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/_seed
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/_seed commit -q --allow-empty -m 'origin baseline'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/_seed push -q origin main
+++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/_seed
+++ git clone -q /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/origin.git /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project remote set-head origin main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project worktree add -q -b fm/task-x1 /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/wt main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/wt commit -q --allow-empty -m 'shippable work'
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/wt push -q origin fm/task-x1
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project fetch -q origin
+++ fm_write_meta /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/state/task-x1.meta window=firstmate:fm-task-x1 endpoint_task_id=task-x1 worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/wt project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project kind=ship mode=local-only spawn_gen=spawn-gate-refuse-task-x1
+++ local file=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/state/task-x1.meta kv
+++ shift
+++ :
+++ for kv in "$@"
+++ printf '%s\n' window=firstmate:fm-task-x1
+++ for kv in "$@"
+++ printf '%s\n' endpoint_task_id=task-x1
+++ for kv in "$@"
+++ printf '%s\n' worktree=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/wt
+++ for kv in "$@"
+++ printf '%s\n' project=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project
+++ for kv in "$@"
+++ printf '%s\n' kind=ship
+++ for kv in "$@"
+++ printf '%s\n' mode=local-only
+++ for kv in "$@"
+++ printf '%s\n' spawn_gen=spawn-gate-refuse-task-x1
+++ printf '%s\n' /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok
++ case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok
+++ run_merge_local /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok
+++ local cwd=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd case_dir=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok
+++ shift 2
+++ cd /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/normal-cwd
+++ env -u NO_MISTAKES_GATE -u FM_GATE_REFUSE_BYPASS FM_ROOT_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ FM_HOME=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok FM_STATE_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/state FM_DATA_OVERRIDE=/home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/data /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/bin/fm-merge-local.sh task-x1
++ out=$'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nmerged fm/task-x1 into local main (01f7905 -> 2d78cb2) in /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project'
++ rc=0
++ expect_code 0 0 'merge-local: a normal session must still land local-only work'
++ local expected=0 actual=0 'label=merge-local: a normal session must still land local-only work'
++ '[' 0 = 0 ']'
++ assert_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nmerged fm/task-x1 into local main (01f7905 -> 2d78cb2) in /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project' 'merged fm/task-x1 into local main' 'merge-local: normal landing should report the fast-forward'
++ case "$1" in
++ :
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nmerged fm/task-x1 into local main (01f7905 -> 2d78cb2) in /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project' 'NO_MISTAKES_GATE set' 'merge-local: normal landing must not print the gate refusal'
++ case "$1" in
++ :
++ assert_not_contains $'●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n●  WATCHER DOWN - SUPERVISION IS OFF\n●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).\n●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.\n●  This is a supervision warning only; the guarded operation WILL still run.\n●  repair missing watcher supervision according to the session-start block for this harness; do not use shell &.\n●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nmerged fm/task-x1 into local main (01f7905 -> 2d78cb2) in /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project' 'no-mistakes gate worktree' 'merge-local: normal landing must not print the backstop refusal'
++ case "$1" in
++ :
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project rev-parse main
+++ git -C /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo/merge-local-ok/project rev-parse fm/task-x1
++ assert_equals 2d78cb2a16be77dee406aa403f9f33cab732686a 2d78cb2a16be77dee406aa403f9f33cab732686a 'merge-local: a normal landing should fast-forward the default branch'
++ '[' 2d78cb2a16be77dee406aa403f9f33cab732686a = 2d78cb2a16be77dee406aa403f9f33cab732686a ']'
++ pass 'fm-merge-local: refuses on marker and gate-worktree backstop; a normal landing is unaffected'
++ printf 'ok - %s\n' 'fm-merge-local: refuses on marker and gate-worktree backstop; a normal landing is unaffected'
++ fm_test_cleanup
++ local d
++ fm_test_reap_procevent_homes
++ local home claim_root $'seen=\n'
++ '[' -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2036147.3QylOT ']'
++ IFS=$'\t'
++ read -r home claim_root
++ rm -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-procevent.2036147.3QylOT
++ for d in "${FM_TEST_CLEANUP_DIRS[@]:-}"
++ '[' -n '' ']'
++ '[' -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2036147.D6Rbhc ']'
++ IFS=
++ read -r d
++ '[' -n /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo ']'
++ rm -rf /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/fm-gate-refuse.BfjRRo
++ IFS=
++ read -r d
++ rm -f /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2DZE2AEGPF5C9FWJ7V8FQJJ/.test-phase-tmp/.fm-test-cleanup.2036147.D6Rbhc
