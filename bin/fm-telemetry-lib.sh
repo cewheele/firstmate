@@ -1,4 +1,11 @@
 # shellcheck shell=bash
+# Watch-arm telemetry record format; operator behavior: docs/watcher-continuity.md.
+# Source after fm-wake-lib.sh so STATE is the arm's resolved state directory.
+# fm_telemetry_emit <cycle-reason> writes JSONL with schema="fm-telemetry.v1",
+# ts=UTC emission time, event="watch_cycle", source="watch-arm", and signal
+# containing the first 64 characters of the lifecycle reason (not an OS signal).
+# Callers must tolerate missing records and ignore emitter failure: this stream
+# is diagnostic evidence, never wake-delivery or acknowledgement authority.
 
 fm_telemetry_lock() {
   local lock=$1 i=0
