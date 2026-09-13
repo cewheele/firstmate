@@ -7,22 +7,18 @@
 # Callers must tolerate missing records and ignore emitter failure: this stream
 # is diagnostic evidence, never wake-delivery or acknowledgement authority.
 
-fm_telemetry_lock() {
-  local lock=$1 i=0
-  while ! mkdir "$lock" 2>/dev/null; do
-    i=$((i + 1)); [ "$i" -lt 20 ] || return 1
-    sleep 0.01
-  done
-  printf '%s\n' "$lock"
-}
-
 fm_telemetry_emit() (
   [ "${FM_TELEMETRY:-1}" != 0 ] || exit 0
   umask 077
   local file="$STATE/telemetry.jsonl" lock segment i size json
   mkdir -p "$STATE" || exit 0
-  lock=$(fm_telemetry_lock "$file.lock") || exit 0
-  trap 'rmdir "$lock" 2>/dev/null || true' EXIT
+  lock="$file.lock"
+  i=0
+  while ! fm_lock_try_acquire "$lock"; do
+    i=$((i + 1)); [ "$i" -lt 20 ] || exit 0
+    sleep 0.01
+  done
+  trap 'fm_lock_release "$lock"' EXIT
   for segment in "$file" "$file.1" "$file.2" "$file.3"; do
     [ ! -L "$segment" ] || exit 0
     if [ -e "$segment" ]; then

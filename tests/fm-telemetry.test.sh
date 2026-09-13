@@ -57,6 +57,7 @@ unset FM_TELEMETRY
 pass "real watcher emits by default and delivers the same wake when telemetry is disabled or blocked"
 
 STATE="$TMP_ROOT/enabled/state"
+. "$ROOT/bin/fm-wake-lib.sh"
 # shellcheck source=bin/fm-telemetry-lib.sh
 . "$ROOT/bin/fm-telemetry-lib.sh"
 for round in 1 2 3 4; do
@@ -89,3 +90,34 @@ for path in files:
 PY
 [ "$?" -eq 0 ] || fail "retention, permissions, or JSONL contract failed"
 pass "telemetry repairs existing permissions and retains three private bounded segments"
+
+STATE="$TMP_ROOT/lock-recovery/state"
+mkdir -p "$STATE"
+FM_STATE_OVERRIDE="$STATE" bash -c '
+  . "$1/bin/fm-wake-lib.sh"
+  fm_lock_try_acquire "$STATE/telemetry.jsonl.lock" || exit 1
+  printf ready > "$STATE/ready"
+  exec sleep 30
+' _ "$ROOT" &
+holder=$!
+for ((i=0; i<100; i++)); do
+  [ -f "$STATE/ready" ] && break
+  sleep 0.01
+done
+if [ ! -f "$STATE/ready" ]; then
+  kill -KILL "$holder" 2>/dev/null || true
+  wait "$holder" 2>/dev/null || true
+  fail "telemetry lock holder did not start"
+fi
+fm_telemetry_emit contended
+contended=0
+[ ! -e "$STATE/telemetry.jsonl" ] || contended=1
+kill -KILL "$holder"
+wait "$holder" 2>/dev/null || true
+[ "$contended" -eq 0 ] || fail "telemetry bypassed live lock holder"
+fm_telemetry_emit recovered
+jq -se 'length == 1 and .[0].signal == "recovered"' "$STATE/telemetry.jsonl" >/dev/null \
+  || fail "telemetry did not recover killed lock holder"
+[ ! -e "$STATE/telemetry.jsonl.lock" ] && [ ! -L "$STATE/telemetry.jsonl.lock" ] \
+  || fail "telemetry did not release its lock"
+pass "telemetry respects live holders and recovers locks after owner termination"
