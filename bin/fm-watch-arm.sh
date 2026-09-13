@@ -183,8 +183,7 @@ cycle_log_append() {
       ;;
   esac
   fm_lock_release "$CYCLE_LOG_LOCK"
-  fm_telemetry_emit watch_cycle "" "" "$reason" "" "" "watch-arm" \
-    "watch-cycle-$cycle_watcher_pid-$cycle_started_at" || true
+  fm_telemetry_emit "$reason" || true
   cycle_active=0
 }
 
