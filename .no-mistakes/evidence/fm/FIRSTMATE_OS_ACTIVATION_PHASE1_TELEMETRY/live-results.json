@@ -1,0 +1,113 @@
+[
+  {
+    "mode": "enabled",
+    "exit": 0,
+    "stdout": "watcher: started pid=1210918 (beacon fresh)\nsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/enabled/selected-state/demo.status\n",
+    "stderr": "",
+    "wake_queue": "1789281111\t1\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/enabled/selected-state/demo.status\n1789281111\t2\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/enabled/selected-state/demo.status\n",
+    "ledger": "arm_pid=1210899\twatcher_pid=1210918\torigin=started\tstarted_at=1789281110\tended_at=1789281112\texit_code=0\tsignal=none\treason=actionable-signal\tbeacon_age=1\tlock_before=pid:1210918|identity:linux-starttime=6411006 cmdline-hex=62617368002f686f6d652f63687269735f776865656c65722f2e6e6f2d6d697374616b65732f776f726b74726565732f3161353439393537326439642f30314d324351423232414e41575656435a534143395a44384d452f62696e2f666d2d77617463682e736800\tlock_after=pid:none|identity:none\tsuccessor=none\n",
+    "telemetry": [
+      {
+        "schema": "fm-telemetry.v1",
+        "ts": "2026-09-13T06:31:52Z",
+        "event": "watch_cycle",
+        "signal": "actionable-signal",
+        "source": "watch-arm"
+      }
+    ],
+    "files": [
+      {
+        "name": "telemetry.jsonl",
+        "bytes": 129,
+        "mode": "0o600"
+      }
+    ]
+  },
+  {
+    "mode": "disabled",
+    "exit": 0,
+    "stdout": "watcher: started pid=1212036 (beacon fresh)\nsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/disabled/selected-state/demo.status\n",
+    "stderr": "",
+    "wake_queue": "1789281113\t1\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/disabled/selected-state/demo.status\n1789281113\t2\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/disabled/selected-state/demo.status\n",
+    "ledger": "arm_pid=1212024\twatcher_pid=1212036\torigin=started\tstarted_at=1789281112\tended_at=1789281113\texit_code=0\tsignal=none\treason=actionable-signal\tbeacon_age=1\tlock_before=pid:1212036|identity:linux-starttime=6411136 cmdline-hex=62617368002f686f6d652f63687269735f776865656c65722f2e6e6f2d6d697374616b65732f776f726b74726565732f3161353439393537326439642f30314d324351423232414e41575656435a534143395a44384d452f62696e2f666d2d77617463682e736800\tlock_after=pid:none|identity:none\tsuccessor=none\n"
+  },
+  {
+    "mode": "blocked",
+    "exit": 0,
+    "stdout": "watcher: started pid=1213125 (beacon fresh)\nsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/blocked/selected-state/demo.status\n",
+    "stderr": "",
+    "wake_queue": "1789281114\t1\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/blocked/selected-state/demo.status\n1789281114\t2\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/blocked/selected-state/demo.status\n",
+    "ledger": "arm_pid=1213113\twatcher_pid=1213125\torigin=started\tstarted_at=1789281113\tended_at=1789281114\texit_code=0\tsignal=none\treason=actionable-signal\tbeacon_age=1\tlock_before=pid:1213125|identity:linux-starttime=6411264 cmdline-hex=62617368002f686f6d652f63687269735f776865656c65722f2e6e6f2d6d697374616b65732f776f726b74726565732f3161353439393537326439642f30314d324351423232414e41575656435a534143395a44384d452f62696e2f666d2d77617463682e736800\tlock_after=pid:none|identity:none\tsuccessor=none\n"
+  },
+  {
+    "mode": "symlink",
+    "exit": 0,
+    "stdout": "watcher: started pid=1214240 (beacon fresh)\nsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/symlink/selected-state/demo.status\n",
+    "stderr": "",
+    "wake_queue": "1789281115\t1\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/symlink/selected-state/demo.status\n1789281115\t2\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/symlink/selected-state/demo.status\n",
+    "ledger": "arm_pid=1214228\twatcher_pid=1214240\torigin=started\tstarted_at=1789281114\tended_at=1789281116\texit_code=0\tsignal=none\treason=actionable-signal\tbeacon_age=1\tlock_before=pid:1214240|identity:linux-starttime=6411396 cmdline-hex=62617368002f686f6d652f63687269735f776865656c65722f2e6e6f2d6d697374616b65732f776f726b74726565732f3161353439393537326439642f30314d324351423232414e41575656435a534143395a44384d452f62696e2f666d2d77617463682e736800\tlock_after=pid:none|identity:none\tsuccessor=none\n"
+  },
+  {
+    "mode": "rotation",
+    "exit": 0,
+    "stdout": "watcher: started pid=1215373 (beacon fresh)\nsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/rotation/selected-state/demo.status\n",
+    "stderr": "",
+    "wake_queue": "1789281116\t1\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/rotation/selected-state/demo.status\n1789281117\t2\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/rotation/selected-state/demo.status\n",
+    "ledger": "arm_pid=1215361\twatcher_pid=1215373\torigin=started\tstarted_at=1789281116\tended_at=1789281117\texit_code=0\tsignal=none\treason=actionable-signal\tbeacon_age=1\tlock_before=pid:1215373|identity:linux-starttime=6411529 cmdline-hex=62617368002f686f6d652f63687269735f776865656c65722f2e6e6f2d6d697374616b65732f776f726b74726565732f3161353439393537326439642f30314d324351423232414e41575656435a534143395a44384d452f62696e2f666d2d77617463682e736800\tlock_after=pid:none|identity:none\tsuccessor=none\n",
+    "telemetry": [
+      {
+        "schema": "fm-telemetry.v1",
+        "ts": "2026-09-13T06:31:57Z",
+        "event": "watch_cycle",
+        "signal": "actionable-signal",
+        "source": "watch-arm"
+      }
+    ],
+    "files": [
+      {
+        "name": "telemetry.jsonl",
+        "bytes": 129,
+        "mode": "0o600"
+      },
+      {
+        "name": "telemetry.jsonl.1",
+        "bytes": 1048572,
+        "mode": "0o600"
+      },
+      {
+        "name": "telemetry.jsonl.2",
+        "bytes": 1048572,
+        "mode": "0o600"
+      },
+      {
+        "name": "telemetry.jsonl.3",
+        "bytes": 1048572,
+        "mode": "0o600"
+      }
+    ]
+  },
+  {
+    "mode": "recovered",
+    "exit": 0,
+    "stdout": "watcher: started pid=1216547 (beacon fresh)\nsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/recovered/selected-state/demo.status\n",
+    "stderr": "",
+    "wake_queue": "1789281118\t1\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/recovered/selected-state/demo.status\n1789281118\t2\tsignal\tdemo.status\tsignal: /home/chris_wheeler/.no-mistakes/worktrees/1a5499572d9d/01M2CQB22ANAWVVCZSAC9ZD8ME/.telemetry-live/manual/recovered/selected-state/demo.status\n",
+    "ledger": "arm_pid=1216535\twatcher_pid=1216547\torigin=started\tstarted_at=1789281117\tended_at=1789281118\texit_code=0\tsignal=none\treason=actionable-signal\tbeacon_age=1\tlock_before=pid:1216547|identity:linux-starttime=6411667 cmdline-hex=62617368002f686f6d652f63687269735f776865656c65722f2e6e6f2d6d697374616b65732f776f726b74726565732f3161353439393537326439642f30314d324351423232414e41575656435a534143395a44384d452f62696e2f666d2d77617463682e736800\tlock_after=pid:none|identity:none\tsuccessor=none\n",
+    "telemetry": [
+      {
+        "schema": "fm-telemetry.v1",
+        "ts": "2026-09-13T06:31:58Z",
+        "event": "watch_cycle",
+        "signal": "actionable-signal",
+        "source": "watch-arm"
+      }
+    ],
+    "files": [
+      {
+        "name": "telemetry.jsonl",
+        "bytes": 129,
+        "mode": "0o600"
+      }
+    ]
+  }
+]
