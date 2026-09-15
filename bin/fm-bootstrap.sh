@@ -183,6 +183,8 @@ DATA="${FM_DATA_OVERRIDE:-$FM_HOME/data}"
 . "$SCRIPT_DIR/fm-startup-memory-budget-lib.sh"
 # shellcheck source=bin/fm-x-lib.sh disable=SC1091
 . "$SCRIPT_DIR/fm-x-lib.sh"
+# shellcheck source=bin/fm-wake-lib.sh disable=SC1091
+. "$SCRIPT_DIR/fm-wake-lib.sh"
 # shellcheck source=bin/fm-backend.sh disable=SC1091
 . "$SCRIPT_DIR/fm-backend.sh"
 # shellcheck source=bin/fm-remote-readiness-lib.sh disable=SC1091
@@ -723,7 +725,7 @@ secondmate_liveness_one_timed() {  # <meta> <id> <label>
 # timed; every `return` here was a `continue` in the loop and means exactly the
 # same thing - move on to the next secondmate. Respawned ids are recorded through
 # secondmate_note_respawned so a concurrent sweep can collect them after wait.
-secondmate_liveness_one() {  # <meta> <id>
+secondmate_liveness_one_locked() {  # <meta> <id>
   local meta=$1 id=$2
   local window harness backend target agent_state out cause remote_host remote_rc readiness_reason route_out remote_backend
   window=$(fm_meta_get "$meta" window)
@@ -841,6 +843,22 @@ secondmate_liveness_one() {  # <meta> <id>
       ;;
   esac
   return 0
+}
+
+# Liveness sweeps run their per-secondmate bodies concurrently.  Serialize the
+# complete probe/relaunch transaction for each id so overlapping session-start
+# or deferred-network sweeps cannot both observe the same dead endpoint and
+# launch duplicate replacements.  The second caller re-probes after waiting for
+# the first caller to publish the replacement metadata/endpoint.
+secondmate_liveness_one() {  # <meta> <id>
+  local meta=$1 id=$2 lock rc
+  case "$id" in ''|*[!A-Za-z0-9._-]*) return 0 ;; esac
+  lock="$STATE/.secondmate-liveness-$id.lock"
+  fm_lock_acquire_wait "$lock" || return 1
+  secondmate_liveness_one_locked "$meta" "$id"
+  rc=$?
+  fm_lock_release "$lock" || rc=1
+  return "$rc"
 }
 
 secondmate_handoff_resume() {
