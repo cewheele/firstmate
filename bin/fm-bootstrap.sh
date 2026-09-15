@@ -728,6 +728,7 @@ secondmate_liveness_one_timed() {  # <meta> <id> <label>
 secondmate_liveness_one_locked() {  # <meta> <id>
   local meta=$1 id=$2
   local window harness backend target agent_state out cause remote_host remote_rc readiness_reason route_out remote_backend
+  local pending="$STATE/.secondmate-liveness-$id.pending" attempt
   window=$(fm_meta_get "$meta" window)
   [ -n "$window" ] || return 0
   harness=$(fm_meta_get "$meta" harness)
@@ -803,6 +804,14 @@ secondmate_liveness_one_locked() {  # <meta> <id>
   target=$(fm_backend_target_of_meta "$meta")
   [ -n "$target" ] || target="$window"
   agent_state=$(fm_backend_agent_state "$backend" "$target" 2>/dev/null) || agent_state=unreadable
+  if [ -e "$pending" ]; then
+    if [ "$agent_state" = alive ]; then
+      rm -f "$pending"
+    else
+      echo "SECONDMATE_LIVENESS: secondmate $id: skipped: previous recovery is unconfirmed ($agent_state); inspect endpoint and $pending before explicitly clearing the marker to retry"
+      return 0
+    fi
+  fi
   case "$harness" in
     claude|codex|opencode|pi|pi-signed|grok|kimi|omp) ;;
     *)
@@ -816,6 +825,7 @@ secondmate_liveness_one_locked() {  # <meta> <id>
       fi
       ;;
     dead|missing)
+      printf 'backend=%s\ntarget=%s\nstarted=%s\n' "$backend" "$target" "$(date +%s)" > "$pending" || return 1
       if [ "$agent_state" = dead ]; then
         cause="confirmed agent absence on existing endpoint"
         fm_backend_kill "$backend" "$target" 2>/dev/null || true
@@ -824,7 +834,21 @@ secondmate_liveness_one_locked() {  # <meta> <id>
       fi
       if out=$(FM_SPAWN_NO_GUARD=1 "$FM_ROOT/bin/fm-spawn.sh" "$id" --secondmate 2>&1); then
         secondmate_note_respawned "$id"
-        report_relaunch "$id" "$cause" "backend=$backend"
+        for ((attempt=0; attempt<10; attempt++)); do
+          backend=$(fm_backend_of_meta "$meta")
+          target=$(fm_backend_target_of_meta "$meta")
+          [ -n "$target" ] || target=$(fm_meta_get "$meta" window)
+          agent_state=$(fm_backend_agent_state "$backend" "$target" 2>/dev/null) || agent_state=unreadable
+          if [ "$agent_state" = alive ]; then
+            rm -f "$pending"
+            report_relaunch "$id" "$cause" "backend=$backend"
+            break
+          fi
+          sleep 0.5
+        done
+        if [ -e "$pending" ]; then
+          echo "SECONDMATE_LIVENESS: secondmate $id: replacement liveness unconfirmed ($agent_state); inspect endpoint and $pending before explicitly clearing the marker to retry"
+        fi
       else
         echo "SECONDMATE_LIVENESS: secondmate $id: respawn failed after $cause: $(first_line "$out")"
       fi

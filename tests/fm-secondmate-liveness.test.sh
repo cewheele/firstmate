@@ -271,6 +271,17 @@ make_liveness_tmux() {
 #!/usr/bin/env bash
 set -u
 mode=${FM_TEST_PANE_CMD:-zsh}
+if [ "$mode" = delayed ]; then
+  mode=zsh
+  if [ -f "${FM_TMUX_CALL_LOG:?}.started" ]; then
+    started=$(cat "${FM_TMUX_CALL_LOG}.started")
+    [ "$(date +%s)" -lt "$((started + 2))" ] || mode=claude
+  fi
+elif [ "$mode" = stalled ]; then
+  mode=zsh
+elif [ -f "${FM_TMUX_CALL_LOG:?}.started" ]; then
+  mode=claude
+fi
 case "${1:-}" in
   display-message)
     for a in "$@"; do
@@ -298,6 +309,9 @@ case "${1:-}" in
     [ "${1:-}" = kill-window ] && : > "${FM_TMUX_CALL_LOG}.killed"
     [ "${FM_TEST_FAIL_NEW_WINDOW:-0}" = 1 ] && [ "${1:-}" = new-window ] && exit 1
     [ "${1:-}" = new-window ] && rm -f "${FM_TMUX_CALL_LOG}.killed"
+    if [ "${1:-}" = new-window ]; then
+      date +%s > "${FM_TMUX_CALL_LOG}.started"
+    fi
     exit 0
     ;;
   has-session) exit 0 ;;
@@ -504,6 +518,35 @@ test_sweep_converges_no_retouch_once_alive() {
   pass "sweep: idempotent by construction - a live secondmate is never re-touched on a later run"
 }
 
+test_sweep_serializes_unconfirmed_replacement() {
+  local mode w fb tmuxfb log first second out
+  for mode in delayed stalled; do
+    w=$(new_world "sweep-overlap-$mode")
+    add_sm_home "$w" sm1 firstmate:fm-sm1
+    fb=$(make_toolchain "$w"); tmuxfb=$(make_liveness_tmux "$w")
+    log="$w/calls.log"; : > "$log"
+    run_bootstrap "$tmuxfb:$fb" "$w/home" "$mode" "$log" > "$w/first.out" &
+    first=$!
+    run_bootstrap "$tmuxfb:$fb" "$w/home" "$mode" "$log" > "$w/second.out" &
+    second=$!
+    wait "$first" || fail "first sweep failed"
+    wait "$second" || fail "second sweep failed"
+    [ "$(grep -c '^new-window' "$log")" -eq 1 ] || fail "$mode: overlapping sweeps launched twice"
+    [ "$(grep -c '^kill-window' "$log")" -eq 1 ] || fail "$mode: overlapping sweeps killed twice"
+    if [ "$mode" = delayed ]; then
+      [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "confirmed launch retained pending recovery"
+    else
+      [ -s "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "unconfirmed launch lost recovery evidence"
+      out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log")
+      assert_contains "$out" 'previous recovery is unconfirmed' "later sweep must preserve an inconclusive launch"
+      [ "$(grep -c '^new-window' "$log")" -eq 1 ] || fail "later sweep retried an inconclusive launch"
+      run_bootstrap "$tmuxfb:$fb" "$w/home" claude "$log" > "$w/alive.out"
+      [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "live observation failed to clear pending recovery"
+    fi
+  done
+  pass "sweep: overlapping recovery waits for startup and preserves inconclusive launches"
+}
+
 test_sweep_skipped_under_detect_only() {
   local w fb tmuxfb log out
   w=$(new_world sweep-detect-only)
@@ -553,6 +596,7 @@ test_sweep_never_acts_on_transient_unreadability
 test_sweep_reports_missing_endpoint_relaunch_failure
 test_sweep_never_acts_on_unverified_harness_dead_reading
 test_sweep_converges_no_retouch_once_alive
+test_sweep_serializes_unconfirmed_replacement
 test_sweep_skipped_under_detect_only
 test_sweep_noop_with_no_secondmate_meta
 
