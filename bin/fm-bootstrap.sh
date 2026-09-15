@@ -825,14 +825,13 @@ secondmate_liveness_one_locked() {  # <meta> <id>
       fi
       ;;
     dead|missing)
-      printf 'backend=%s\ntarget=%s\nstarted=%s\n' "$backend" "$target" "$(date +%s)" > "$pending" || return 1
       if [ "$agent_state" = dead ]; then
         cause="confirmed agent absence on existing endpoint"
         fm_backend_kill "$backend" "$target" 2>/dev/null || true
       else
         cause="recorded endpoint confidently missing"
       fi
-      if out=$(FM_SPAWN_NO_GUARD=1 "$FM_ROOT/bin/fm-spawn.sh" "$id" --secondmate 2>&1); then
+      if out=$(FM_SPAWN_NO_GUARD=1 FM_SPAWN_RECOVERY=1 "$FM_ROOT/bin/fm-spawn.sh" "$id" --secondmate 2>&1); then
         secondmate_note_respawned "$id"
         for ((attempt=0; attempt<10; attempt++)); do
           backend=$(fm_backend_of_meta "$meta")

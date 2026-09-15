@@ -4057,7 +4057,9 @@ if [ "$RELAUNCH" -eq 1 ]; then
   SPAWN_META_TMP="$STATE/.$ID.meta.relaunch.${BASHPID:-$$}"
 else
   SPAWN_META_TMP="$STATE/.$ID.meta.spawn.${BASHPID:-$$}"
-  SPAWN_FRESH_COMMIT_PENDING=1
+  if [ "${FM_SPAWN_RECOVERY:-0}" != 1 ] || [ "$KIND" != secondmate ]; then
+    SPAWN_FRESH_COMMIT_PENDING=1
+  fi
 fi
 SPAWN_META_PATH=$SPAWN_META_TMP
 preserve_relaunch_meta() {
@@ -4362,6 +4364,9 @@ if [ "$LAUNCH_ENV_ENABLED" = 1 ]; then
   LAUNCH="$LAUNCH_ENV_PREFIX /bin/sh -c $(shell_quote "$LAUNCH")"
 fi
 sleep 0.3
+if [ "${FM_SPAWN_RECOVERY:-0}" = 1 ] && [ "$KIND" = secondmate ]; then
+  printf 'backend=%s\ntarget=%s\nstarted=%s\n' "$BACKEND" "$T" "$(date +%s)" > "$STATE/.secondmate-liveness-$ID.pending"
+fi
 spawn_send_literal "$T" "$LAUNCH"
 sleep 0.3
 if [ "${HERDR_PROJECTED:-0}" -eq 1 ]; then

@@ -316,6 +316,9 @@ case "${1:-}" in
     ;;
   send-keys)
     [ "${FM_TEST_FAIL_SEND_KEYS:-0}" != 1 ] || exit 1
+    if [ "${FM_TEST_FAIL_LAUNCH_SEND:-0}" = 1 ] && [ -e "$FM_HOME/state/.secondmate-liveness-sm1.pending" ]; then
+      exit 1
+    fi
     ;;
   has-session) exit 0 ;;
 esac
@@ -497,9 +500,27 @@ test_sweep_preserves_inconclusive_failed_launch() {
   log="$w/calls.log"; : > "$log"
   out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log" FM_TEST_FAIL_SEND_KEYS=1)
   assert_contains "$out" 'respawn failed after' "send failure must reach failed-spawn handling"
-  [ -s "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "partial launch lost pending protection"
-  [ "$(grep -c '^new-window' "$log")" -eq 1 ] || fail "partial launch did not create an endpoint"
-  pass "sweep: failed spawn with an existing endpoint remains protected"
+  [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "pre-submission failure blocked recovery"
+  [ -s "$w/home/state/sm1.meta" ] || fail "pre-submission failure lost the recovery record"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log")
+  [ "$(grep -c '^new-window' "$log")" -eq 2 ] || fail "pre-submission failure did not permit retry"
+  assert_not_contains "$out" 'respawn failed after' "retry should submit the launch successfully"
+  pass "sweep: pre-submission failure preserves the record and permits retry"
+}
+
+test_sweep_preserves_uncertain_submission_failure() {
+  local w fb tmuxfb log out
+  w=$(new_world sweep-submission-failure)
+  add_sm_home "$w" sm1 firstmate:fm-sm1
+  fb=$(make_toolchain "$w"); tmuxfb=$(make_liveness_tmux "$w")
+  log="$w/calls.log"; : > "$log"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log" FM_TEST_FAIL_LAUNCH_SEND=1)
+  assert_contains "$out" 'respawn failed after' "launch send failure must reach failed-spawn handling"
+  [ -s "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "uncertain submission lost its marker"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log")
+  assert_contains "$out" 'previous recovery is unconfirmed' "uncertain submission must remain protected"
+  [ "$(grep -c '^new-window' "$log")" -eq 1 ] || fail "uncertain submission permitted duplicate recovery"
+  pass "sweep: uncertain launch submission remains protected"
 }
 
 test_sweep_never_acts_on_unverified_harness_dead_reading() {
@@ -619,6 +640,7 @@ test_sweep_never_acts_on_ambiguous_existing_process
 test_sweep_never_acts_on_transient_unreadability
 test_sweep_reports_missing_endpoint_relaunch_failure
 test_sweep_preserves_inconclusive_failed_launch
+test_sweep_preserves_uncertain_submission_failure
 test_sweep_never_acts_on_unverified_harness_dead_reading
 test_sweep_converges_no_retouch_once_alive
 test_sweep_serializes_unconfirmed_replacement
