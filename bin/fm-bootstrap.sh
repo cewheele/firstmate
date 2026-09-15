@@ -20,7 +20,7 @@
 #                 "SECONDMATE_SYNC: secondmate <id>: skipped: <reason>",
 #                 "NUDGE_SECONDMATES: secondmate <id>: send failed: <reason>",
 #                 "BOOTSTRAP_INFO: nudged fm-<id> with '<message>'",
-#                 "SECONDMATE_LIVENESS: secondmate <id>: skipped: <reason>|respawn failed after <cause>: <reason>",
+#                 "SECONDMATE_LIVENESS: secondmate <id>: <diagnostic>",
 #                 "SECONDMATE_HANDOFF: secondmate <id>: pending delivery: <n> item(s)",
 #                 "FMX: X mode on ..." or "FMX: X mode off ...".
 #          When a RUNNING secondmate home is fast-forwarded, its target is
@@ -48,6 +48,21 @@
 #          fm_backend_agent_state: skipped distinguishes an existing ambiguous
 #          process, an unreadable target, and an unverified backend; respawn
 #          failed names whether the endpoint was missing or agent-less.
+#          Each secondmate's probe/relaunch transaction holds
+#          state/.secondmate-liveness-<id>.lock through local replacement
+#          confirmation (up to ten probes with 0.5s sleeps between failures).
+#          Local recovery passes FM_SPAWN_RECOVERY=1 to fm-spawn.sh, preserving
+#          the recovery metadata on failure instead of fresh-spawn rollback.
+#          After launch text is sent, immediately before attempting Enter,
+#          spawn writes state/.secondmate-liveness-<id>.pending with backend,
+#          target, and started (epoch seconds); failures before submission
+#          leave no new marker and permit retry.
+#          An unconfirmed replacement reports SECONDMATE_LIVENESS and retains
+#          that evidence: later sweeps clear it on alive or authoritatively
+#          missing, allowing recovery on missing, but skip all other states.
+#          Before explicitly clearing an inconclusive marker to retry, inspect
+#          the endpoint and marker to rule out a still-starting replacement.
+#          tests/fm-secondmate-liveness.test.sh covers overlap and retry cases.
 #          Already-live and successfully relaunched secondmates are silent
 #          unless FM_BOOTSTRAP_VERBOSE_FACTS=1 requests BOOTSTRAP_INFO facts.
 #          A TANGLE line means the firstmate primary checkout (FM_ROOT) is stranded
