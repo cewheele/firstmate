@@ -805,7 +805,7 @@ secondmate_liveness_one_locked() {  # <meta> <id>
   [ -n "$target" ] || target="$window"
   agent_state=$(fm_backend_agent_state "$backend" "$target" 2>/dev/null) || agent_state=unreadable
   if [ -e "$pending" ]; then
-    if [ "$agent_state" = alive ]; then
+    if [ "$agent_state" = alive ] || [ "$agent_state" = missing ]; then
       rm -f "$pending"
     else
       echo "SECONDMATE_LIVENESS: secondmate $id: skipped: previous recovery is unconfirmed ($agent_state); inspect endpoint and $pending before explicitly clearing the marker to retry"

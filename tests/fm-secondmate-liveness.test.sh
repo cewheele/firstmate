@@ -560,8 +560,12 @@ test_sweep_serializes_unconfirmed_replacement() {
       out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log")
       assert_contains "$out" 'previous recovery is unconfirmed' "later sweep must preserve an inconclusive launch"
       [ "$(grep -c '^new-window' "$log")" -eq 1 ] || fail "later sweep retried an inconclusive launch"
-      run_bootstrap "$tmuxfb:$fb" "$w/home" claude "$log" > "$w/alive.out"
-      [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "live observation failed to clear pending recovery"
+      rm -f "$log.started"
+      out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" missing "$log")
+      [ "$(grep -c '^new-window' "$log")" -eq 2 ] || fail "confirmed endpoint loss did not permit recovery"
+      [ "$(grep -c '^kill-window' "$log")" -eq 1 ] || fail "missing endpoint recovery killed another endpoint"
+      assert_not_contains "$out" 'SECONDMATE_LIVENESS:' "missing endpoint should recover successfully"
+      [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "confirmed replacement retained pending recovery"
     fi
   done
   pass "sweep: overlapping recovery waits for startup and preserves inconclusive launches"
