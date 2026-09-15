@@ -314,6 +314,9 @@ case "${1:-}" in
     fi
     exit 0
     ;;
+  send-keys)
+    [ "${FM_TEST_FAIL_SEND_KEYS:-0}" != 1 ] || exit 1
+    ;;
   has-session) exit 0 ;;
 esac
 exit 0
@@ -479,7 +482,24 @@ test_sweep_reports_missing_endpoint_relaunch_failure() {
 
   assert_contains "$out" "SECONDMATE_LIVENESS: secondmate sm1: respawn failed after recorded endpoint confidently missing" \
     "a failed missing-endpoint relaunch should retain its authorizing cause"
-  pass "sweep: failed relaunch diagnostics distinguish a confidently missing endpoint"
+  [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "definitively missing replacement blocked retries"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" missing "$log")
+  [ "$(grep -c '^new-window' "$log")" -eq 2 ] || fail "later sweep did not retry failed window creation"
+  assert_not_contains "$out" 'SECONDMATE_LIVENESS:' "retry should recover successfully"
+  pass "sweep: failed window creation permits a later recovery attempt"
+}
+
+test_sweep_preserves_inconclusive_failed_launch() {
+  local w fb tmuxfb log out
+  w=$(new_world sweep-partial-failure)
+  add_sm_home "$w" sm1 firstmate:fm-sm1
+  fb=$(make_toolchain "$w"); tmuxfb=$(make_liveness_tmux "$w")
+  log="$w/calls.log"; : > "$log"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log" FM_TEST_FAIL_SEND_KEYS=1)
+  assert_contains "$out" 'respawn failed after' "send failure must reach failed-spawn handling"
+  [ -s "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "partial launch lost pending protection"
+  [ "$(grep -c '^new-window' "$log")" -eq 1 ] || fail "partial launch did not create an endpoint"
+  pass "sweep: failed spawn with an existing endpoint remains protected"
 }
 
 test_sweep_never_acts_on_unverified_harness_dead_reading() {
@@ -594,6 +614,7 @@ test_sweep_respawns_authoritatively_missing_pi_signed_secondmate
 test_sweep_never_acts_on_ambiguous_existing_process
 test_sweep_never_acts_on_transient_unreadability
 test_sweep_reports_missing_endpoint_relaunch_failure
+test_sweep_preserves_inconclusive_failed_launch
 test_sweep_never_acts_on_unverified_harness_dead_reading
 test_sweep_converges_no_retouch_once_alive
 test_sweep_serializes_unconfirmed_replacement

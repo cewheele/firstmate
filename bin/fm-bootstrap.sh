@@ -850,6 +850,13 @@ secondmate_liveness_one_locked() {  # <meta> <id>
           echo "SECONDMATE_LIVENESS: secondmate $id: replacement liveness unconfirmed ($agent_state); inspect endpoint and $pending before explicitly clearing the marker to retry"
         fi
       else
+        backend=$(fm_backend_of_meta "$meta")
+        target=$(fm_backend_target_of_meta "$meta")
+        [ -n "$target" ] || target=$(fm_meta_get "$meta" window)
+        agent_state=$(fm_backend_agent_state "$backend" "$target" 2>/dev/null) || agent_state=unreadable
+        if [ "$agent_state" = missing ]; then
+          rm -f "$pending"
+        fi
         echo "SECONDMATE_LIVENESS: secondmate $id: respawn failed after $cause: $(first_line "$out")"
       fi
       ;;
