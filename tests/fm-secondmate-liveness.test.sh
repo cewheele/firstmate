@@ -316,8 +316,15 @@ case "${1:-}" in
     ;;
   send-keys)
     [ "${FM_TEST_FAIL_SEND_KEYS:-0}" != 1 ] || exit 1
-    if [ "${FM_TEST_FAIL_LAUNCH_SEND:-0}" = 1 ] && [ -e "$FM_HOME/state/.secondmate-liveness-sm1.pending" ]; then
-      exit 1
+    case "$*" in
+      *' -l '*codex*)
+        : > "$FM_TMUX_CALL_LOG.launch-typed"
+        [ "${FM_TEST_FAIL_LAUNCH_SEND:-0}" != 1 ] || exit 1
+        ;;
+    esac
+    if [ "${*: -1}" = Enter ] && [ -e "$FM_TMUX_CALL_LOG.launch-typed" ]; then
+      : > "$FM_TMUX_CALL_LOG.submit-attempt"
+      [ "${FM_TEST_FAIL_SUBMIT:-0}" != 1 ] || exit 1
     fi
     ;;
   has-session) exit 0 ;;
@@ -508,14 +515,32 @@ test_sweep_preserves_inconclusive_failed_launch() {
   pass "sweep: pre-submission failure preserves the record and permits retry"
 }
 
+test_sweep_retries_literal_send_failure() {
+  local w fb tmuxfb log out
+  w=$(new_world sweep-literal-failure)
+  add_sm_home "$w" sm1 firstmate:fm-sm1
+  fb=$(make_toolchain "$w"); tmuxfb=$(make_liveness_tmux "$w")
+  log="$w/calls.log"; : > "$log"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log" FM_TEST_FAIL_LAUNCH_SEND=1)
+  assert_contains "$out" 'respawn failed after' "literal send failure must fail spawn"
+  [ -e "$log.launch-typed" ] || fail "literal launch send was not attempted"
+  [ ! -e "$log.submit-attempt" ] || fail "literal send failure attempted Enter"
+  [ ! -e "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "literal send failure blocked recovery"
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log")
+  [ "$(grep -c '^new-window' "$log")" -eq 2 ] || fail "literal send failure did not permit retry"
+  assert_not_contains "$out" 'respawn failed after' "retry should submit successfully"
+  pass "sweep: failed literal send permits retry before submission"
+}
+
 test_sweep_preserves_uncertain_submission_failure() {
   local w fb tmuxfb log out
   w=$(new_world sweep-submission-failure)
   add_sm_home "$w" sm1 firstmate:fm-sm1
   fb=$(make_toolchain "$w"); tmuxfb=$(make_liveness_tmux "$w")
   log="$w/calls.log"; : > "$log"
-  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log" FM_TEST_FAIL_LAUNCH_SEND=1)
+  out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log" FM_TEST_FAIL_SUBMIT=1)
   assert_contains "$out" 'respawn failed after' "launch send failure must reach failed-spawn handling"
+  [ -e "$log.submit-attempt" ] || fail "Enter submission was not attempted"
   [ -s "$w/home/state/.secondmate-liveness-sm1.pending" ] || fail "uncertain submission lost its marker"
   out=$(run_bootstrap "$tmuxfb:$fb" "$w/home" stalled "$log")
   assert_contains "$out" 'previous recovery is unconfirmed' "uncertain submission must remain protected"
@@ -640,6 +665,7 @@ test_sweep_never_acts_on_ambiguous_existing_process
 test_sweep_never_acts_on_transient_unreadability
 test_sweep_reports_missing_endpoint_relaunch_failure
 test_sweep_preserves_inconclusive_failed_launch
+test_sweep_retries_literal_send_failure
 test_sweep_preserves_uncertain_submission_failure
 test_sweep_never_acts_on_unverified_harness_dead_reading
 test_sweep_converges_no_retouch_once_alive
