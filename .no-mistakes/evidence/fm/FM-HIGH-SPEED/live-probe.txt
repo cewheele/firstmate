@@ -1,0 +1,2 @@
+Existing shell endpoint: dead
+Absent endpoint: missing
